@@ -1,0 +1,5 @@
+/* CSS declarations go here */
+.selected {
+    background:rgba(200, 100, 75, .3);
+    font-size:1.5em;
+}
