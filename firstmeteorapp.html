@@ -2,30 +2,43 @@
     <title>Leaderboard</title>
 </head>
 <body>
-    <h1>Leaderboard</h1>
+    <h1 class="page-heading">Leaderboard</h1>
     {{> leaderboard}}
+    {{> loginButtons}}
+    {{> addPlayerForm}}
 </body>
 
 <template name="leaderboard">
-	<ul>
+	
+	<ul class="well">
 	    {{#each player}}
-	        <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+	        	<li class="player {{selectedClass}}">{{name}}: <span class="badge">{{score}}</span></li>
 	    {{/each}}
 	    <li>
 	    	{{#if showSelectedPlayer}}
-	    	  <input type="button" class="increment" value="Give 5 Points">
-	    	  <input type="button" class="decrement" value="Take 5 Points">
+	    	  <input type="button" class="increment btn btn-success" value="Give 5 Points">
+	    	  <input type="button" class="decrement btn btn-warning" value="Take 5 Points">
+	    	  <input type="button" class="remove btn btn-danger" value="Remove Player">
     	{{/if}}
     	</li>
     	{{#if showSelectedPlayer}}
 		    <li>Selected Player: {{showSelectedPlayer.name}}</li>
 		{{/if}}
 	</ul>
-	{{>addPlayerForm}}
 </template>
 <template name="addPlayerForm">
-  <form>
-    <input type="text" class="form-control" name="playerName">
-    <input type="button" class="submit" value="Add Player">
-  </form>
+    {{#if currentUser}}
+        <div class="row">
+	        <div class="col-md-6 col-md-offset-2">
+		      <div class="container-fluid addform">  
+		        <div class="navbar navbar-fixed-bottom">
+			        <form class="navbar-form">
+			            <input type="text" name="playerName" class="form-control" placeholder="Players Name">
+			            <input type="submit" value="Add Player" class="btn btn-default">
+			         </form>
+			     </div>
+		       </div>
+	         </div>
+	    </div>
+    {{/if}}
 </template>

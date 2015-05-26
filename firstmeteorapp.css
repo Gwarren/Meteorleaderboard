@@ -1,5 +1,32 @@
 /* CSS declarations go here */
+body{ 
+    text-align:center;
+    padding-top:20px;
+    
+}
+a{
+    text-decoration:none;
+}
 .selected {
     background:rgba(200, 100, 75, .3);
     font-size:1.5em;
+}
+ul {
+    list-style:none;
+    text-align:left;
+}
+li{
+    padding:3px;
+    padding-left:33%;
+}
+a#login-name-link{ 
+    text-decoration:none;
+    color:Green;
+    border:1px solid black;
+    padding:5px;
+    border-radius:3px;
+    background:rgba(0,0,0,.2);
+}
+.addform{
+    padding-top:10px;
 }
