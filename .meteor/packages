@@ -6,7 +6,8 @@
 
 meteor-platform
 accounts-password
-accounts-ui
-bootstrap
 accounts-twitter
 accounts-facebook
+ian:accounts-ui-bootstrap-3
+twbs:bootstrap
+msavin:mongol

@@ -2,43 +2,46 @@
     <title>Leaderboard</title>
 </head>
 <body>
-    <h1 class="page-heading">Leaderboard</h1>
-    {{> leaderboard}}
-    {{> loginButtons}}
+	{{> leaderboard}}
     {{> addPlayerForm}}
 </body>
 
 <template name="leaderboard">
-	
-	<ul class="well">
+	  <div class="well well-lg">
+		<h1 class="page-heading"><small>Follow the </small>Leaderboard</h1>
+	  </div>
+	<ul class="list-group">
 	    {{#each player}}
-	        	<li class="player {{selectedClass}}">{{name}}: <span class="badge">{{score}}</span></li>
+	        	<li class="player {{selectedClass}} list-group-item list-group-item-info">{{name}}: <span class="badge pull-left">{{score}}</span></li>
 	    {{/each}}
 	    <li>
 	    	{{#if showSelectedPlayer}}
-	    	  <input type="button" class="increment btn btn-success" value="Give 5 Points">
+	    	  <input type="button" class="increment btn btn-success col-md-offset-5" value="Give 5 Points">
 	    	  <input type="button" class="decrement btn btn-warning" value="Take 5 Points">
 	    	  <input type="button" class="remove btn btn-danger" value="Remove Player">
     	{{/if}}
     	</li>
     	{{#if showSelectedPlayer}}
-		    <li>Selected Player: {{showSelectedPlayer.name}}</li>
+		    <li class="alert alert-success">Selected Player: {{showSelectedPlayer.name}}</li>
 		{{/if}}
 	</ul>
 </template>
 <template name="addPlayerForm">
-    {{#if currentUser}}
-        <div class="row">
-	        <div class="col-md-6 col-md-offset-2">
-		      <div class="container-fluid addform">  
-		        <div class="navbar navbar-fixed-bottom">
-			        <form class="navbar-form">
-			            <input type="text" name="playerName" class="form-control" placeholder="Players Name">
-			            <input type="submit" value="Add Player" class="btn btn-default">
-			         </form>
+          <div class="container-fluid addform">  
+            <div class="row">
+              <div class="col-sm-8">
+		        <div class="navbar navbar-inverse navbar-fixed-top navbar-right">
+			      <form class="navbar-form">
+			        <div class="form-group">
+			        {{#if currentUser}}  
+			          <input type="text" name="playerName" class="form-control" placeholder="Players Name">
+			            <input type="submit" value="Add Player" class="btn btn-primary">
+			        {{/if}}
+			        </div>
+			        	<a class="btn btn-primary navbar-btn">{{> loginButtons}}</a>
+			        </form>
 			     </div>
 		       </div>
-	         </div>
-	    </div>
-    {{/if}}
+	        </div>
+	      </div>
 </template>
